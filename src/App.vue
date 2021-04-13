@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" v-scroll="enableScroll">
+    <Header/>
+    <Banner/>
+    <FeaturesList :scrollPosMain="scrollPosition"/>
+    <OurPurpose :scrollPosMain="scrollPosition"/>
+    <LastNews/>
+    <Feedback/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Header from './components/common/Header.vue';
+import Banner from './components/home/Banner.vue';
+import FeaturesList from './components/home/FeaturesList.vue';
+import OurPurpose from './components/home/OurPurpose.vue';
+import LastNews from './components/home/LastNews.vue';
+import Feedback from './components/home/Feedback.vue';
+import Footer from './components/common/Footer.vue';
 
 export default {
   name: 'App',
+  data() {
+    return{
+      scrollPosition: null
+    }
+  },
   components: {
-    HelloWorld
+    Header,
+    Banner,
+    FeaturesList,
+    OurPurpose,
+    LastNews,
+    Feedback,
+    Footer
+  },
+  methods:{
+    enableScroll(){
+      this.scrollPosition = window.scrollY;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
