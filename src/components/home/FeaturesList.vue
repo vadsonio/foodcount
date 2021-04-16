@@ -8,7 +8,7 @@
         <div class="features-list__item">
           <img src="../../assets/yoga.svg" class="features-list__item-img" alt="feature-1">
           <h3 class="features-list__item-title">Мы ведем свой Блог. Полезные статьи помогут Вам узнать много нового!</h3>
-          <a href="#" class="features-list__item-btn">Статьи</a>
+          <router-link class="features-list__item-btn" :to="{ path: '/articles' }" exact>Статьи</router-link>
         </div>
         <div class="features-list__item">
           <img src="../../assets/diet.svg" class="features-list__item-img" alt="feature-2">
@@ -28,7 +28,6 @@
 <script>
 export default {
   name: 'FeaturesList',
-  props: ['scrollPosMain'],
   data(){
     return{
       scrollEnable: false,
@@ -37,7 +36,7 @@ export default {
   },
   methods:{
     handleSCroll(){
-      if(this.scrollPosMain - this.scrollPos > -300){
+      if(window.scrollY - this.scrollPos > -300){
         this.scrollEnable = true;
       }
     }
@@ -101,7 +100,7 @@ export default {
       font-weight: 600;
       display: inline-block;
       color: #fff;
-      background: #FF3D87;
+      background: $pinkMain;
       &:hover{
         text-decoration: none;
         color: #fff;

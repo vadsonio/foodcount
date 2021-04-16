@@ -34,7 +34,6 @@
 <script>
 export default {
   name: 'OurPurpose',
-  props: ['scrollPosMain'],
   data(){
     return{
       scrollEnable: false,
@@ -43,7 +42,7 @@ export default {
   },
   methods:{
     handleSCroll(){
-      if(this.scrollPosMain - this.scrollPos > -200){
+      if(window.scrollY - this.scrollPos > -200){
         this.scrollEnable = true;
       }
     }
@@ -98,7 +97,7 @@ export default {
         border-radius: 10px;
         text-align: left;
         color: #fff;
-        background: #FF3D87;
+        background: $pinkMain;
         box-shadow: 0px 0px 7px rgba(0, 0, 0, .1);
         opacity: 0;
       }

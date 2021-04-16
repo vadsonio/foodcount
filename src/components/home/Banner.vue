@@ -9,19 +9,19 @@
           Наша главная задача заключается в том, чтобы помочь Вам узнать о пищевой ценности потребляемых вами продуктов. 
           Правильно подходить к своему завтраку, обеду и ужину.
         </p>
-        <button class="banner-main__more-btn">
+        <a href="#featuresList" class="banner-main__more-btn" v-smooth-scroll>
           Подробнее
-        </button>
+        </a>
         <a href="#featuresList" class="banner-main__chevron-down" v-smooth-scroll>
           <b-icon icon="chevron-down"></b-icon>
         </a>
       </div>
-     
     </div>
   </section>
 </template>
 
 <script>
+
   export default {
     name: "Banner",
     data(){
@@ -83,13 +83,15 @@
     border-radius: 4px;
     font-weight: 500;
     color: #333;
-    background: #FFD409;
+    background: $yellowMain;
     opacity: 0;
     animation: fadeInBannerText 2s;
     animation-delay: .6s;
     animation-fill-mode: forwards;
     &:hover{
-      opacity: .8;
+      text-decoration: none;
+      color: #333;
+      background: lighten($yellowMain, 10%);
     }
     &:active{
       opacity: .7;
@@ -105,9 +107,13 @@
     transform: translateX(-50%);
     font-size: 30px;
     border: none;
-    color: #FF3D87;
+    color: $pinkMain;
     background: transparent;
     animation: bouncingChevronDown 3s infinite;
+    &:hover{
+      color: $pinkMain;
+      opacity: .8;
+    }
     @keyframes bouncingChevronDown {
       from{
         opacity: 0;

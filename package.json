@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "FoodCount",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.10.1",
     "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
     "vue-slick-carousel": "^1.0.6",
     "vue2-smooth-scroll": "^1.5.0",
     "vuelidate": "^0.7.6"

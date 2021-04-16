@@ -186,7 +186,7 @@ export default {
         border-radius: 6px;
         font-size: 12px;
         color: #fff;
-        background: #FF3D87;
+        background: $pinkMain;
       }
       &-title{
         font-size: 16px;

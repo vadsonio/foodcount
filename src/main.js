@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import router from './router'
+
 // Bootstrap
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -14,6 +16,10 @@ Vue.use(IconsPlugin)
 // Smooth scroll to anchor
 import VueSmoothScroll from 'vue2-smooth-scroll'
 Vue.use(VueSmoothScroll)
+
+// Vuelidate - input fields validation
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 Vue.directive('scroll', {
   inserted: function (el, binding) {
@@ -29,5 +35,6 @@ Vue.directive('scroll', {
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')

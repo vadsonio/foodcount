@@ -7,8 +7,8 @@
         </a>
         <nav class="header__nav" :class="{'header__nav--mobile': showMobile}">
           <span class="header__nav--mobile-close" :class="{active: showMobile}" @click="showMobile = false">✕</span>
-          <a href="#" class="header__nav-link active">Главная</a>
-          <a href="#" class="header__nav-link">Статьи</a>
+          <router-link class="header__nav-link" :to="{ path: '/' }" exact-path>Главная</router-link>
+          <router-link class="header__nav-link" :to="{ path: '/articles' }" exact>Статьи</router-link>
           <a href="#" class="header__nav-link">Список продуктов<b-icon icon="list-stars"></b-icon></a>
           <a href="#" class="header__nav-link">Считать каллории<b-icon icon="calculator-fill"></b-icon></a>
           <a href="#" class="header__nav-link login-btn">Войти</a>
@@ -48,7 +48,7 @@ export default {
     left: 0;
     width: 100%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 50%);
-    background: #FF3D87;
+    background: $pinkMain;
     z-index: 2;
     .container{
       height: 100%;
@@ -93,15 +93,28 @@ export default {
           margin-left: 5px;
           vertical-align: middle;
         }
-        &.active:after{
+        &.router-link-active:after{
           content: '';
           display: block;
           position: absolute;
           bottom: -5px;
           left: 0;
-          width: 25px;
+          width: 0;
           height: 3px;
           background: #fff;
+          opacity: 0;
+          animation: fadeInLinkAfter .3s;
+          animation-fill-mode: forwards;
+          @keyframes fadeInLinkAfter {
+            from{
+              width: 0;
+              opacity: 0;
+            }
+            to{
+              width: 25px;
+              opacity: 1;
+            }
+          }
         }
         &.login-btn{
           padding: 2px 20px;
