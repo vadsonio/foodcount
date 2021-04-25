@@ -125,12 +125,15 @@ export default {
 <style lang="scss">
 .footer{
   padding: 20px 0;
+  position: relative;
+  min-height: 220px;
   color: #fff;
   background: #0a0b21; /* Old browsers */
   background: -moz-linear-gradient(left, #0a0b21 0%, #111035 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #0a0b21 0%,#111035 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, #0a0b21 0%,#111035 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0b21', endColorstr='#111035',GradientType=1 ); /* IE6-9 */
+  z-index: map-get($z-index, footer);
   &__logo{
     margin-bottom: 40px;
     display: block;

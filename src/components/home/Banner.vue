@@ -5,7 +5,7 @@
         <h1 class="banner-main__title mb-4">
           FoodCount - ваш помощник в сфере правильного и сбалансированного питания! 
         </h1>
-        <p class="banner-main__subtitle mb-4">
+        <p class="banner-main__subtitle mb-5">
           Наша главная задача заключается в том, чтобы помочь Вам узнать о пищевой ценности потребляемых вами продуктов. 
           Правильно подходить к своему завтраку, обеду и ужину.
         </p>
@@ -40,7 +40,7 @@
   background-size: cover;
   background-image: url('../../assets/banner-main-big_min.jpg');
   border-bottom: 2px solid rgba(0,0,0,.06);
-  @media (max-width: 860px) {
+  @media (max-width: map-get($grid-breakpoints, md)) {
     background-image: none;
   }
   &__wrap{
@@ -57,8 +57,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    @media (max-width: 860px) {
+    @media (max-width: map-get($grid-breakpoints, md)) {
       width: 100%;
+      text-align: center;
     }
   }
   &__title{
@@ -66,6 +67,18 @@
     opacity: 0;
     animation: fadeInBannerText 2s;
     animation-fill-mode: forwards;
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      font-size: 28px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 667px) {
+      font-size: 30px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 736px) {
+      font-size: 34px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 812px) {
+      font-size: 36px;
+    }
   }
   &__subtitle{
     color: #666;
@@ -73,7 +86,16 @@
     animation: fadeInBannerText 2s;
     animation-delay: .4s;
     animation-fill-mode: forwards;
-    @media (max-width: 600px) {
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 667px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 736px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 812px) {
       font-size: 20px;
     }
   }
@@ -96,8 +118,18 @@
     &:active{
       opacity: .7;
     }
-    @media (max-width: 600px) {
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      margin: 0 auto;
+      font-size: 16px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 667px) {
       font-size: 20px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 736px) {
+      font-size: 22px;
+    }
+    @media screen and (max-width: map-get($grid-breakpoints, sm)) and (device-height: 812px) {
+      font-size: 24px;
     }
   }
   &__chevron-down{
@@ -113,6 +145,9 @@
     &:hover{
       color: $pinkMain;
       opacity: .8;
+    }
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+      display: none;
     }
     @keyframes bouncingChevronDown {
       from{

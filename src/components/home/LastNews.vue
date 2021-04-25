@@ -10,97 +10,121 @@
       <VueSlickCarousel v-bind="settings">
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
           
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://img.freepik.com/free-photo/front-view-of-female-doctor-with-stethoscope-holding-paper-heart_23-2148635141.jpg?size=626&ext=jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://img.freepik.com/free-photo/front-view-of-female-doctor-with-stethoscope-holding-paper-heart_23-2148635141.jpg?size=626&ext=jpg'"></div>
             <h4 class="last-news__article-category">
               Здоровье
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://thumbs.dreamstime.com/b/healthy-fitness-low-calories-food-oat-raspberry-blueberry-cashew-nuts-compare-to-unhelthy-fat-fast-meat-burger-french-153256382.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://thumbs.dreamstime.com/b/healthy-fitness-low-calories-food-oat-raspberry-blueberry-cashew-nuts-compare-to-unhelthy-fat-fast-meat-burger-french-153256382.jpg'"></div>
             <h4 class="last-news__article-category">
               Сравним!?
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
 
         <a href="#" class="last-news__article">
           <div class="last-news__article-wrap">
-            <div class="last-news__article-img" :style="{ backgroundImage: 'url(https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg)' }"></div>
+            <div class="last-news__article-img" v-lazy:background-image="'https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg'"></div>
             <h4 class="last-news__article-category">
               Диета
             </h4>
             <h3 class="last-news__article-title">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet, dolorum. Labore expedita quibusdam vero ut! Suscipit in et eaque quaerat!
             </h3>
+            <p class="last-news__article-description">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum. 
+            </p>
           </div>
         </a>
       </VueSlickCarousel>
@@ -170,7 +194,7 @@ export default {
       }
       &-wrap{
         padding: 10px;
-        border-radius: 6px;
+        border-radius: 15px;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
         background: #fff;
       }
@@ -179,11 +203,14 @@ export default {
         margin-bottom: 10px;
         background-position: center;
         background-size: cover;
+        border-radius: 15px 15px 0 0;
       }
       &-category{
+        position: absolute;
+        top: 35px;
         display: inline-block;
-        padding: 4px 10px;
-        border-radius: 6px;
+        padding: 3px 10px;
+        border-radius: 0 5px 5px 0;
         font-size: 12px;
         color: #fff;
         background: $pinkMain;
@@ -199,6 +226,16 @@ export default {
         &:hover{
           text-decoration: underline;
         }
+      }
+      &-description{
+        font-size: 14px;
+        line-height: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #888;
       }
     }
   }

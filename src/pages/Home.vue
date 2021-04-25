@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-body">
     <Banner/>
     <FeaturesList/>
     <OurPurpose/>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+// debugger;
 import Banner from '../components/home/Banner.vue';
 import FeaturesList from '../components/home/FeaturesList.vue';
 import OurPurpose from '../components/home/OurPurpose.vue';
@@ -23,10 +24,17 @@ export default {
     OurPurpose,
     LastNews,
     Feedback
+  },
+  methods:{
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
+  },
+  mounted(){
+    this.scrollToTop();
   }
 }
 </script>
 
-<style>
-
+<style lang="scss">
 </style>

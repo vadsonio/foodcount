@@ -66,10 +66,13 @@ export default {
     border-bottom: 2px solid rgba(0, 0, 0, 0.06);
     &__heading{
       margin-bottom: 40px;
+      @media (max-width: map-get($grid-breakpoints, sm)){
+        display: none;
+      }
     }
     &__wrap{
       display: flex;
-      @media (max-width: 600px) {
+      @media (max-width: map-get($grid-breakpoints, sm)) {
         flex-direction: column-reverse;
       }
     }
@@ -79,13 +82,16 @@ export default {
       position: relative;
       text-align: center;
       opacity: 0;
-      @media (max-width: 600px) {
+      @media (max-width: map-get($grid-breakpoints, sm)) {
         width: 100%;
       }
       img{
         text-align: center;
         width: 350px;
         height: auto;
+        @media (max-width: map-get($grid-breakpoints, sm)) {
+          width: 100%;
+        }
       }
       &-overlay{
         position: absolute;
@@ -100,6 +106,9 @@ export default {
         background: $pinkMain;
         box-shadow: 0px 0px 7px rgba(0, 0, 0, .1);
         opacity: 0;
+        @media (max-width: map-get($grid-breakpoints, sm)) {
+          height: auto;
+        }
       }
       &-title{
         text-transform: uppercase;
@@ -111,6 +120,9 @@ export default {
       &-subtitle{
         font-size: 14px;
         line-height: 20px;
+        @media (max-width: map-get($grid-breakpoints, sm)) {
+          margin: 0;
+        }
       }
     }
     &__text{

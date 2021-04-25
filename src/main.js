@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import router from './router'
+import store from "./store"
 
 // Bootstrap
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
@@ -21,6 +22,10 @@ Vue.use(VueSmoothScroll)
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 
+// Lazyload to images
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
 Vue.directive('scroll', {
   inserted: function (el, binding) {
     let f = function (evt) {
@@ -36,5 +41,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

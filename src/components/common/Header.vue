@@ -6,14 +6,14 @@
           <img src="../../assets/logo.png" alt="logo">
         </a>
         <nav class="header__nav" :class="{'header__nav--mobile': showMobile}">
-          <span class="header__nav--mobile-close" :class="{active: showMobile}" @click="showMobile = false">✕</span>
+          <span class="header__nav--mobile-close" :class="{active: showMobile}" @click="hideMobileMenu">✕</span>
           <router-link class="header__nav-link" :to="{ path: '/' }" exact-path>Главная</router-link>
           <router-link class="header__nav-link" :to="{ path: '/articles' }" exact>Статьи</router-link>
           <a href="#" class="header__nav-link">Список продуктов<b-icon icon="list-stars"></b-icon></a>
           <a href="#" class="header__nav-link">Считать каллории<b-icon icon="calculator-fill"></b-icon></a>
           <a href="#" class="header__nav-link login-btn">Войти</a>
         </nav>
-        <button class="header__mobile-menu-btn" @click="showMobile = true">
+        <button class="header__mobile-menu-btn" @click="showMobileMenu">
           <b-icon icon="three-dots-vertical"></b-icon>
         </button>
       </div>
@@ -32,9 +32,20 @@ export default {
     }
   },
   methods: {
-    // toogleMobileMenu(){
-    //   this.showMobile = !this.showMobile;
-    // }
+    showMobileMenu(){
+      this.showMobile = true;
+      document.body.classList.add('fixed');
+    },
+    hideMobileMenu(){
+      this.showMobile = false;
+      document.body.classList.remove('fixed');
+    }
+  },
+  watch: {
+    '$route' () {
+      this.showMobile = false;
+      document.body.classList.remove('fixed');
+    }
   }
 }
 </script>
@@ -49,7 +60,7 @@ export default {
     width: 100%;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 50%);
     background: $pinkMain;
-    z-index: 2;
+    z-index: map-get($z-index, header);
     .container{
       height: 100%;
     }
@@ -123,20 +134,19 @@ export default {
           color: #FF3D87;
           background: #fff;
         }
-        @media (max-width: 1000px) {
-          font-size: 14px;
-        }
+        
       }
-      @media(max-width: 800px){
+      @media (max-width: map-get($grid-breakpoints, lg)) {
         display: none;
       }
       &--mobile{
         display: block;
-        padding: 20px 50px 20px 30px;
+        padding: 70px 50px 20px 30px;
         position: fixed;
         top: 0;
         left: 0;
-        height: 100%;
+        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         transition: .3s;
         color: #333;
@@ -166,6 +176,9 @@ export default {
           svg{
             margin-right: 15px;
           }
+          @media (max-width: map-get($grid-breakpoints, sm)) {
+            font-size: 16px;
+          }
         }
         &-close{
           display: none;
@@ -187,7 +200,7 @@ export default {
       border: none;
       background: none;
       color: #fff;
-      @media(max-width: 800px){
+      @media (max-width: map-get($grid-breakpoints, lg)){
         display: block;
       }
     }
