@@ -5,5 +5,6 @@ module.exports = {
         prependData: `@import "@/scss/main.scss";`
       }
     }
-  }
+  },
+  publicPath: '/foodcount/devPreview/'
 };
