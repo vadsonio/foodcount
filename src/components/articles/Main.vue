@@ -68,7 +68,7 @@ let dummyList = [
     id: 4,
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, eos.",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum.",
-    img: "https://via.placeholder.com/800x500",
+    img: "https://yogamedicine.com/wp-content/uploads/2019/09/Types-of-Yoga-3.jpg",
     category: "Йога",
     time: "14.07.2021"
   },
@@ -76,7 +76,7 @@ let dummyList = [
     id: 5,
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, eos.",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum.",
-    img: "https://via.placeholder.com/800x500",
+    img: "https://www.lipton.com/content/dam/unilever/lipton_international/global/general_image/worldtea_teatype_ginger_img1_1460x593-1446342-jpg.jpg",
     category: "Еда",
     time: "14.07.2021"
   },
@@ -84,8 +84,8 @@ let dummyList = [
     id: 6,
     text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, eos.",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, eum.",
-    img: "https://via.placeholder.com/800x500",
-    category: "Йога",
+    img: "https://m8group.co.uk/wp-content/uploads/2020/12/axminster-web-header.png",
+    category: "Упражнения",
     time: "14.07.2021"
   },
   {

@@ -1,5 +1,5 @@
 <template>
-  <section class="features-list" :class="{'animation-enabled': scrollEnable}" ref="featuresList" id="featuresList">
+  <section class="features-list" ref="featuresList" id="featuresList">
     <div class="container">
       <h2 class="features-list__heading text-center">
         Коротко о нас
@@ -27,30 +27,7 @@
 
 <script>
 export default {
-  name: 'FeaturesList',
-  data(){
-    return{
-      scrollEnable: false,
-      scrollPos: null
-    }
-  },
-  methods:{
-    handleSCroll(){
-      if(window.scrollY - this.scrollPos > -300){
-        this.scrollEnable = true;
-      }
-    }
-  },
-  mounted(){
-    const top = this.$refs.featuresList.offsetTop;
-    this.scrollPos = top;
-  },
-  created () {
-    window.addEventListener('scroll', this.handleSCroll);
-  },
-  destroyed () {
-    window.removeEventListener('scroll', this.handleSCroll);
-  } 
+  name: 'FeaturesList'
 }
 </script>
 
@@ -76,7 +53,6 @@ export default {
     border: 4px dashed #99999947;
     text-align: center;
     transition: .3s;
-    opacity: 0;
     &:hover{
       border: 4px dashed #99999917;
       .features-list__item-img{
@@ -116,34 +92,6 @@ export default {
     @media (max-width: 600px) {
       padding: 25px 30px;
       margin: 0 20px 20px;
-    }
-  }
-  &.animation-enabled{
-    .features-list__item{
-      &:nth-child(1){
-        animation: fadeInFeaturesList .5s;
-        animation-fill-mode: forwards;
-      }
-      &:nth-child(2){
-        animation: fadeInFeaturesList .5s;
-        animation-delay: .4s;
-        animation-fill-mode: forwards;
-      }
-      &:nth-child(3){
-        animation: fadeInFeaturesList .5s;
-        animation-delay: .8s;
-        animation-fill-mode: forwards;
-      }
-      @keyframes fadeInFeaturesList {
-        from{
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to{
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
     }
   }
 }

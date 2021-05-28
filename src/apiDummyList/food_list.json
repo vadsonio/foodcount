@@ -1,0 +1,186 @@
+[
+  {
+    "category": {
+      "name": "Молочные продукты",
+      "icon": "🥛"
+    },
+    "list": [
+      {
+        "id": 1,
+        "name": "Брынза (из коровьего молока)",
+        "weight": 100,
+        "kcal": 262,
+        "proteins": 22.1,
+        "fats": 19.2,
+        "carbohydrates": 0.4
+      },
+      {
+        "id": 2,
+        "name": "Запеканка из обезжиренного творога",
+        "weight": 100,
+        "kcal": 168,
+        "proteins": 17.6,
+        "fats": 4.2,
+        "carbohydrates": 14.2
+      },
+      {
+        "id": 3,
+        "name": "Йогурт 1,5%",
+        "weight": 100,
+        "kcal": 57,
+        "proteins": 4.1,
+        "fats": 1.5,
+        "carbohydrates": 5.9
+      },
+      {
+        "id": 4,
+        "name": "Йогурт 3,2%",
+        "weight": 100,
+        "kcal": 68,
+        "proteins": 5,
+        "fats": 3.2,
+        "carbohydrates": 3.5
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Яйца и яйцепродукты",
+      "icon": "🍳"
+    },
+    "list": [
+      {
+        "id": 5,
+        "name": "Белок куриного яйца",
+        "weight": 100,
+        "kcal": 48,
+        "proteins": 11.1,
+        "fats": 0,
+        "carbohydrates": 1
+      },
+      {
+        "id": 6,
+        "name": "Желток куриного яйца",
+        "weight": 100,
+        "kcal": 354,
+        "proteins": 16.2,
+        "fats": 31.2,
+        "carbohydrates": 0
+      },
+      {
+        "id": 7,
+        "name": "Яичный порошок",
+        "weight": 100,
+        "kcal": 542,
+        "proteins": 46,
+        "fats": 37.3,
+        "carbohydrates": 4.5
+      },
+      {
+        "id": 8,
+        "name": "Яйцо куриное",
+        "weight": 100,
+        "kcal": 157,
+        "proteins": 12.7,
+        "fats": 10.9,
+        "carbohydrates": 0.7
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Рыба и морепродукты",
+      "icon": "🐟"
+    },
+    "list": [
+      {
+        "id": 9,
+        "name": "Вобла",
+        "weight": 100,
+        "kcal": 95,
+        "proteins": 18,
+        "fats": 2.8,
+        "carbohydrates": 0
+      },
+      {
+        "id": 10,
+        "name": "Горбуша",
+        "weight": 100,
+        "kcal": 140,
+        "proteins": 20.5,
+        "fats": 6.5,
+        "carbohydrates": 0
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Шоколадные изделия",
+      "icon": "🍫"
+    },
+    "list": [
+      {
+        "id": 11,
+        "name": "Сникерс (Snickers)",
+        "weight": 100,
+        "kcal": 475.10,
+        "proteins": 7.58,
+        "fats": 24.78,
+        "carbohydrates": 54.13
+      },
+      {
+        "id": 12,
+        "name": "Твикс (Twix)",
+        "weight": 100,
+        "kcal": 493.0,
+        "proteins": 4.4,
+        "fats": 23.6,
+        "carbohydrates": 64.9
+      },
+      {
+        "id": 13,
+        "name": "Баунти (Bounty)",
+        "weight": 100,
+        "kcal": 485.0,
+        "proteins": 3.1,
+        "fats": 25.3,
+        "carbohydrates": 60
+      },
+      {
+        "id": 14,
+        "name": "Марс (Mars)",
+        "weight": 100,
+        "kcal": 454.0,
+        "proteins": 4.1,
+        "fats": 17.4,
+        "carbohydrates": 69.6
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Напитки",
+      "icon": "🥤"
+    },
+    "list": [
+      {
+        "id": 15,
+        "name": "Кока-Кола (Coca-Cola)",
+        "weight": 100,
+        "kcal": 42.0,
+        "proteins": 0.0,
+        "fats": 0.0,
+        "carbohydrates": 10.6
+      },
+      {
+        "id": 16,
+        "name": "Фанта (Fanta)",
+        "weight": 100,
+        "kcal": 33.0,
+        "proteins": 0.0,
+        "fats": 0.0,
+        "carbohydrates": 8.0
+      }
+    ]
+  }
+]
