@@ -6,5 +6,5 @@ module.exports = {
       }
     }
   },
-  publicPath: '/foodcount/devPreview/'
+  publicPath: '/foodcount/docs/'
 };
