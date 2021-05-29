@@ -11,12 +11,12 @@
       </div>
 
       
-      <div class="compare-block" v-if="compareBlockPreview">
-        <h2>
+      <div class="compare-block">
+        <h2 class="compare-block__heading" :class="{'compare-block__heading--expanded' : compareBlockPreview}" @click="compareBlockPreview = !compareBlockPreview">
           Таблица сравнений
         </h2>
 
-        <div class="compare-block__preview" v-if="compareList.length === 0">
+        <div class="compare-block__preview" v-if="compareList.length === 0 && compareBlockPreview">
           <p>
             Добавьте несколько продуктов, чтобы сравнить их пищевую ценность и выбрать подходящий.
           </p>
@@ -33,7 +33,7 @@
           </ul>
         </div>
 
-        <div class="compare-block__wrap" v-if="compareList.length !== 0">
+        <div class="compare-block__wrap" v-if="compareList.length !== 0 && compareBlockPreview">
           
           <CompareBlockDetailes :compareArray="compareList"/>
 
@@ -107,8 +107,11 @@
           
         </div>
 
-        <span class="compare-block__close-icon" @click="compareBlockPreview = !compareBlockPreview">
-          <b-icon icon="x"></b-icon>
+        <span 
+          class="compare-block__close-icon" 
+          :class="{'compare-block__close-icon--expanded' : compareBlockPreview}"
+          @click="compareBlockPreview = !compareBlockPreview">
+          <b-icon icon="chevron-down"></b-icon>
         </span>
       </div>
 
@@ -399,11 +402,16 @@ export default {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 0px 4px rgba(0,0,0,.1);
-    h2{
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #eee;
+    &__heading{
+      margin: 0;
       font-size: 19px;
+      cursor: pointer;
+      user-select: none;
+      &--expanded{
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
     }
     &__preview{
       ul{
@@ -546,14 +554,17 @@ export default {
     }
     &__close-icon{
       position: absolute;
-      top: 0;
-      right: 0;
-      padding: 0 4px;
+      top: 20px;
+      right: 20px;
+      padding: 0 5px;
       font-size: 20px;
-      border-bottom-left-radius: 5px;
       cursor: pointer;
-      color: #fff;
-      background: $pinkMain;
+      user-select: none;
+      transition: .3s;
+      color: #888;
+      &--expanded{
+        transform: rotate(180deg);
+      }
     }
   }
 }
