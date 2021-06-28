@@ -26,6 +26,10 @@ Vue.use(Vuelidate)
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 
+var VueScrollTo = require('vue-scrollto');
+ 
+Vue.use(VueScrollTo)
+
 Vue.directive('scroll', {
   inserted: function (el, binding) {
     let f = function (evt) {

@@ -6,40 +6,74 @@
     },
     "list": [
       {
-        "id": 1,
+        "id": "milk_1",
         "name": "Брынза (из коровьего молока)",
         "weight": 100,
         "kcal": 262,
         "proteins": 22.1,
         "fats": 19.2,
-        "carbohydrates": 0.4
+        "carbohydrates": 0.4,
+        "sizes": null
       },
       {
-        "id": 2,
+        "id": "milk_2",
         "name": "Запеканка из обезжиренного творога",
         "weight": 100,
         "kcal": 168,
         "proteins": 17.6,
         "fats": 4.2,
-        "carbohydrates": 14.2
+        "carbohydrates": 14.2,
+        "sizes": null
       },
       {
-        "id": 3,
+        "id": "milk_3",
         "name": "Йогурт 1,5%",
         "weight": 100,
         "kcal": 57,
         "proteins": 4.1,
         "fats": 1.5,
-        "carbohydrates": 5.9
+        "carbohydrates": 5.9,
+        "sizes": null
       },
       {
-        "id": 4,
+        "id": "milk_4",
         "name": "Йогурт 3,2%",
         "weight": 100,
         "kcal": 68,
         "proteins": 5,
         "fats": 3.2,
-        "carbohydrates": 3.5
+        "carbohydrates": 3.5,
+        "sizes": null
+      },
+      {
+        "id": "milk_5",
+        "name": "Молоко 1,5%",
+        "weight": 100,
+        "kcal": 45,
+        "proteins": 3,
+        "fats": 1.5,
+        "carbohydrates": 4.8,
+        "sizes": null
+      },
+      {
+        "id": "milk_6",
+        "name": "Молоко 2,5%",
+        "weight": 100,
+        "kcal": 54,
+        "proteins": 2.9,
+        "fats": 2.5,
+        "carbohydrates": 4.8,
+        "sizes": null
+      },
+      {
+        "id": "milk_7",
+        "name": "Молоко 3,2%",
+        "weight": 100,
+        "kcal": 60,
+        "proteins": 2.9,
+        "fats": 3.2,
+        "carbohydrates": 4.7,
+        "sizes": null
       }
     ]
   },
@@ -50,40 +84,44 @@
     },
     "list": [
       {
-        "id": 5,
+        "id": "egg_1",
         "name": "Белок куриного яйца",
         "weight": 100,
         "kcal": 48,
         "proteins": 11.1,
         "fats": 0,
-        "carbohydrates": 1
+        "carbohydrates": 1,
+        "sizes": null
       },
       {
-        "id": 6,
+        "id": "egg_2",
         "name": "Желток куриного яйца",
         "weight": 100,
         "kcal": 354,
         "proteins": 16.2,
         "fats": 31.2,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "sizes": null
       },
       {
-        "id": 7,
+        "id": "egg_3",
         "name": "Яичный порошок",
         "weight": 100,
         "kcal": 542,
         "proteins": 46,
         "fats": 37.3,
-        "carbohydrates": 4.5
+        "carbohydrates": 4.5,
+        "sizes": null
       },
       {
-        "id": 8,
+        "id": "egg_4",
         "name": "Яйцо куриное",
         "weight": 100,
         "kcal": 157,
         "proteins": 12.7,
         "fats": 10.9,
-        "carbohydrates": 0.7
+        "carbohydrates": 0.7,
+        "sizes": null
       }
     ]
   },
@@ -94,22 +132,24 @@
     },
     "list": [
       {
-        "id": 9,
+        "id": "egg_5",
         "name": "Вобла",
         "weight": 100,
         "kcal": 95,
         "proteins": 18,
         "fats": 2.8,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "sizes": null
       },
       {
-        "id": 10,
+        "id": "egg_6",
         "name": "Горбуша",
         "weight": 100,
         "kcal": 140,
         "proteins": 20.5,
         "fats": 6.5,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "sizes": null
       }
     ]
   },
@@ -120,40 +160,78 @@
     },
     "list": [
       {
-        "id": 11,
+        "id": "chocolate_1",
         "name": "Сникерс (Snickers)",
         "weight": 100,
         "kcal": 475.10,
         "proteins": 7.58,
         "fats": 24.78,
-        "carbohydrates": 54.13
+        "carbohydrates": 54.13,
+        "sizes": [
+          {
+            "label": "8гр",
+            "weight": 8
+          },
+          {
+            "label": "57гр",
+            "weight": 57
+          },
+          {
+            "label": "93г",
+            "weight": 93
+          },
+          {
+            "label": "454гр",
+            "weight": 454
+          }
+        ]
       },
       {
-        "id": 12,
+        "id": "chocolate_2",
         "name": "Твикс (Twix)",
         "weight": 100,
         "kcal": 493.0,
         "proteins": 4.4,
         "fats": 23.6,
-        "carbohydrates": 64.9
+        "carbohydrates": 64.9,
+        "sizes": [
+          {
+            "label": "8гр",
+            "weight": 8
+          },
+          {
+            "label": "57гр",
+            "weight": 57
+          },
+          {
+            "label": "93г",
+            "weight": 93
+          },
+          {
+            "label": "454гр",
+            "weight": 454
+          }
+        ]
       },
       {
-        "id": 13,
+        "id": "chocolate_3",
         "name": "Баунти (Bounty)",
         "weight": 100,
         "kcal": 485.0,
         "proteins": 3.1,
         "fats": 25.3,
-        "carbohydrates": 60
+        "carbohydrates": 60,
+        "sizes": null
       },
       {
-        "id": 14,
+        "id": "chocolate_4",
         "name": "Марс (Mars)",
         "weight": 100,
         "kcal": 454.0,
         "proteins": 4.1,
         "fats": 17.4,
-        "carbohydrates": 69.6
+        "carbohydrates": 69.6,
+        "sizes": null
       }
     ]
   },
@@ -164,22 +242,86 @@
     },
     "list": [
       {
-        "id": 15,
+        "id": "drinks_1",
         "name": "Кока-Кола (Coca-Cola)",
         "weight": 100,
         "kcal": 42.0,
         "proteins": 0.0,
         "fats": 0.0,
-        "carbohydrates": 10.6
+        "carbohydrates": 10.6,
+        "sizes": [
+          {
+            "label": "0.33л",
+            "weight": 330
+          },
+          {
+            "label": "0.5л",
+            "weight": 500
+          },
+          {
+            "label": "1л",
+            "weight": 1000
+          },
+          {
+            "label": "2л",
+            "weight": 2000
+          }
+        ]
       },
       {
-        "id": 16,
+        "id": "drinks_2",
         "name": "Фанта (Fanta)",
         "weight": 100,
         "kcal": 33.0,
         "proteins": 0.0,
         "fats": 0.0,
-        "carbohydrates": 8.0
+        "carbohydrates": 8.0,
+        "sizes": [
+          {
+            "label": "0.33л",
+            "weight": 330
+          },
+          {
+            "label": "0.5л",
+            "weight": 500
+          },
+          {
+            "label": "1л",
+            "weight": 1000
+          },
+          {
+            "label": "2л",
+            "weight": 2000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": {
+      "name": "Энергетические напитки",
+      "icon": "⚡"
+    },
+    "list": [
+      {
+        "id": "energy_drink_1",
+        "name": "Адреналин Раш (Adrenaline Rush)",
+        "weight": 100,
+        "kcal": 52,
+        "proteins": 0.5,
+        "fats": 0,
+        "carbohydrates": 13,
+        "sizes": null
+      },
+      {
+        "id": "energy_drink_2",
+        "name": "Ред Булл (Red Bull)",
+        "weight": 100,
+        "kcal": 43,
+        "proteins": 0.46,
+        "fats": 0,
+        "carbohydrates": 10.2,
+        "sizes": null
       }
     ]
   }

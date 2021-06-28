@@ -38,7 +38,7 @@
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('../../assets/banner-main-big_min.jpg');
+  background-image: url('../../assets/banner-main_bg.png');
   border-bottom: 2px solid rgba(0,0,0,.06);
   @media (max-width: map-get($grid-breakpoints, md)) {
     background-image: none;

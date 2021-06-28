@@ -142,6 +142,14 @@ export default {
   },
   components: {
     Comments
+  },
+  mounted(){
+    this.scrollToTop();
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
   }
 }
 </script>
@@ -358,9 +366,6 @@ export default {
       color: #000;
       &:hover{
         text-decoration: none;
-      }
-      svg{
-        
       }
       span{
         margin-left: 10px;

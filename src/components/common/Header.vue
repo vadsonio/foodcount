@@ -2,9 +2,9 @@
   <div class="header">
     <div class="container">
       <div class="header__wrap">
-        <a href="#" class="header__logo">
+        <router-link to="/" class="header__logo">
           <img src="../../assets/logo.png" alt="logo">
-        </a>
+        </router-link>
         <nav class="header__nav" :class="{'header__nav--mobile': showMobile}">
           <span class="header__nav--mobile-close" :class="{active: showMobile}" @click="hideMobileMenu">✕</span>
           <router-link class="header__nav-link" :to="{ path: '/' }" exact-path>Главная</router-link>

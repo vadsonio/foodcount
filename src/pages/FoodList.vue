@@ -2,7 +2,7 @@
   <section class="food-list">
     <div class="container">
       <div class="food-list__search">
-        <span class="food-list__search-head">Название продукта:</span>
+        <p class="food-list__search-head">Название продукта:</p>
         <b-form-input 
           v-model="searchQuery" 
           class="food-list__search-input" 
@@ -11,10 +11,12 @@
       </div>
 
       
-      <div class="compare-block">
-        <h2 class="compare-block__heading" :class="{'compare-block__heading--expanded' : compareBlockPreview}" @click="compareBlockPreview = !compareBlockPreview">
-          Таблица сравнений
-        </h2>
+      <div class="compare-block" ref="compareBlock" id="compareBlock">
+        
+        <div class="compare-block__heading" :class="{'compare-block__heading--expanded' : compareBlockPreview}" @click="compareBlockPreview = !compareBlockPreview">
+          <h2>Таблица сравнений</h2>
+          <span class="compare-cart">{{compareList.length}} шт.</span>
+        </div>
 
         <div class="compare-block__preview" v-if="compareList.length === 0 && compareBlockPreview">
           <p>
@@ -34,76 +36,13 @@
         </div>
 
         <div class="compare-block__wrap" v-if="compareList.length !== 0 && compareBlockPreview">
-          
-          <CompareBlockDetailes :compareArray="compareList"/>
 
-          <ul class="compare-block__list">
-            <li class="compare-block__item" v-for="(item, index) in compareList" :key="item.id">
-              <h3>{{item.name}}</h3>
-              <div class="compare-block__item-wrap">
-                
-                <div class="compare-block__item-chart">
-
-                  <div class="chart-sm">
-                    <SinglePieChart class="chart-sm__chart" :params="{
-                      kcal: Number(item.kcal), 
-                      proteins: countPercent(item, 'proteins'), 
-                      fats: countPercent(item, 'fats'),
-                      carbohydrates: countPercent(item, 'carbohydrates')
-                    }"/>
-                    <div class="chart-sm__centered-kcal">
-                      {{item.kcal}}
-                      <div class="chart-sm__centered-title">
-                        ккал
-                      </div>
-                    </div>
-                  </div>
-                  <div class="chart-sm__chart-legend" :key="item.protPercent">
-                    Процентное соотношение
-                    <ul>
-                      <li class="chart-sm__chart-legend-item proteins">
-                        <p>
-                          Белки - {{item.proteins}} гр.
-                        </p>
-                        <span>
-                          ({{countPercent(item, 'proteins')}}%)
-                        </span>
-                      </li>
-                      <li class="chart-sm__chart-legend-item fats">
-                        <p>
-                          Жиры - {{item.fats}} гр.
-                        </p>
-                        <span>
-                          ({{countPercent(item, 'fats')}}%)
-                        </span>
-                      </li>
-                      <li class="chart-sm__chart-legend-item carbohydrates">
-                        <p>
-                          Углеводы - {{item.carbohydrates}} гр. 
-                        </p>
-                        <span>
-                          ({{countPercent(item, 'carbohydrates')}}%)
-                        </span>
-                      </li>
-                      <li class="chart-sm__chart-legend-item weight">
-                        <p>
-                          {{item.weight}} гр.
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                  <p class="delete" @click="deleteFromCompareList(index)">
-                    <b-icon icon="trash"></b-icon>
-                  </p>
-                </div>
-                
-              </div>
-            </li>
-
-            <li v-if="compareList.length === 1" class="compare-block__item compare-block__item--empty-dashed">
-              Добавьте еще как минимум один продукт для более детального сравнения.
-            </li>
-          </ul>
+          <div v-if="isMobile">
+            <CompareBlockDetailesMobile :compareArray="compareList"/>
+          </div>
+          <div v-else>
+            <CompareBlockDetailes :compareArray="compareList" @deleteItem="deleteFromCompareList"/>
+          </div>
           
         </div>
 
@@ -134,15 +73,33 @@
           <tbody>
             <tr v-for="subItem in filteredFoodSublist(item.list)" :key="subItem.name">
               <td>
-                {{subItem.name}}
+                <div class="food-list__table-item-name-wrap">
+                  {{subItem.name}}
 
-                <b-dropdown size="sm" :id="`dropdown-${index}`"  variant="link" toggle-class="text-decoration-none" no-caret>
-                  <template #button-content>
-                    <b-icon icon="three-dots-vertical"></b-icon>
-                    <span class="sr-only">Search</span>
-                  </template>
-                  <b-dropdown-item @click="addToCompare(subItem)">Добавить в сравнение</b-dropdown-item>
-                </b-dropdown>
+                  <div class="food-list__table-item-name-sizes">
+                    <span class="item-size-before-tag" v-if="subItem.sizes">Выберите вес:</span>  
+                    <div class="item-size-tag-wrap" v-for="subItemSize in subItem.sizes" :key="subItemSize.label" @click="subItem.weight = subItemSize.weight">
+                      <span class="item-size-tag" :class="(subItem.weight === subItemSize.weight) ? 'active' : ''">
+                        {{subItemSize.label}}
+                      </span>
+                    </div>
+                  </div>
+
+                  <b-dropdown size="sm" :id="`dropdown-${index}`"  variant="link" toggle-class="text-decoration-none" no-caret>
+                    <template #button-content>
+                      <b-icon icon="three-dots-vertical"></b-icon>
+                      <span class="sr-only">Search</span>
+                    </template>
+                    <!-- <b-dropdown-item 
+                      @click="addToCompare(subItem)" 
+                      v-scroll-to="{
+                        el: '#compareBlock',
+                        offset: -100  
+                      }">Добавить в сравнение</b-dropdown-item> -->
+                      <b-dropdown-item @click="addToCompare(subItem)">Добавить в сравнение</b-dropdown-item>
+                  </b-dropdown>
+                </div>
+                
               </td>
               <td>
                 <input type="number" v-model.number="subItem.weight" @keyup="filterWeightInput" min="0">
@@ -165,27 +122,53 @@
       </div>
 
     </div>
+
+    <div class="popup-info" :class="{'show': popup.show}">
+      <p class="popup-info__heading">
+        Элемент был добавлен в сравнение:
+      </p>
+      <p class="popup-info__text">
+        {{popup.text}}
+      </p>
+    </div>
+
+    <div class="popup-top" :class="{'show': showPopupToTop}" @click="scrollToTop">
+      <span class="popup-top__icon">
+        <b-icon icon="arrow-up"></b-icon>
+      </span>
+      <span class="popup-top__text">
+        Наверх
+      </span>
+    </div>
   </section>
 </template>
 
 <script>
 import FList from '../apiDummyList/food_list.json';
 
-import SinglePieChart from '../components/food/ItemPieChart.vue';
 import CompareBlockDetailes from '../components/food/CompareBlockDetailes.vue';
+import CompareBlockDetailesMobile from '../components/food/CompareBlockDetailesMobile.vue';
+
+import { isMobile } from 'mobile-device-detect';
 
 export default {
   name: "FoodList",
   components: {
-    SinglePieChart,
-    CompareBlockDetailes
+    CompareBlockDetailes,
+    CompareBlockDetailesMobile
   },
   data(){
     return{
       searchQuery: '',
       foodlist: [],
       compareBlockPreview: true,
-      compareList: []
+      compareList: [],
+      isMobile: isMobile,
+      popup: {
+        show: false,
+        text: ''
+      },
+      showPopupToTop: false
     }
   },
   mounted(){
@@ -258,21 +241,35 @@ export default {
         fats: (weight !== 0 ? this.calculateItemFats(weight, fats): 0),
         carbohydrates: (weight !== 0 ? this.calculateItemCarbohydrates(weight, carbohydrates): 0)
       }
-      this.compareList.push(newCompareItem)
-    },
-    countPercent(object, item){
-      if(object.weight === 0){
-        return 0
-      }
-      let summ = Number(object.proteins) + Number(object.fats) + Number(object.carbohydrates),
-          itemPercent = (object[item] / summ) * 100,
-          itemToFixed = itemPercent.toFixed(1);
+      this.compareList.push(newCompareItem);
 
-      return itemToFixed;
+      this.popupInit(name);
+    },
+    popupInit(text){
+      this.popup = {
+        show: true,
+        text
+      }
+      setTimeout(()=> this.popup={show: false, text:""}, 3000)
     },
     deleteFromCompareList(itemIndex){
-      this.compareList.splice(itemIndex, 1)
+      this.compareList = this.compareList.filter(item => item.id !== itemIndex);
+    },
+    initPopupScrollToTop(){
+      let top  = window.pageYOffset || document.documentElement.scrollTop;
+
+      if(top > 500){
+        this.showPopupToTop = true; 
+      } else {
+        this.showPopupToTop = false; 
+      }
     }
+  },
+  created() {
+    window.addEventListener('scroll', this.initPopupScrollToTop);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.initPopupScrollToTop);
   }
 }
 </script>
@@ -280,6 +277,11 @@ export default {
 <style lang="scss">
 .food-list{
   padding-top: 50px;
+  overflow: hidden;
+  min-height: 100vh;
+  height: 100%;
+  background: url('../assets/foodlist_bg.png');
+  background-attachment: fixed;
   &__search{
     display: flex;
     align-items: center;
@@ -290,12 +292,28 @@ export default {
     border: 1px solid #eee;
     border-radius: 8px;
     box-shadow: 0px 0px 4px rgba(0,0,0,.1);
+    background: #fff;
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      padding: 20px;
+      height: auto;
+      flex-direction: column;
+    }
     &-head{
       margin-right: 20px;
+      margin-bottom: 0;
       font-size: 30px;
       font-weight: 900;
       flex-shrink: 0;
       align-self: center;
+      @media (max-width: map-get($grid-breakpoints, lg)) {
+        font-size: 22px;
+      }
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        padding: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+        align-self: flex-start;
+      }
     }
     &-input{
       padding: 20px;
@@ -304,6 +322,19 @@ export default {
       line-height: 1;
       border: none;
       font-weight: 700;
+      &.form-control:focus{
+        outline: none;
+        border-color: none;
+        box-shadow: none;
+      }
+      @media (max-width: map-get($grid-breakpoints, lg)) {
+        font-size: 22px;
+      }
+      @media (max-width: map-get($grid-breakpoints, md)) {
+        padding: 0;
+        font-size: 18px;
+        height: auto;
+      }
       &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: #ccc;
         font-weight: 400;
@@ -326,13 +357,14 @@ export default {
     margin-bottom: 40px;
     &-heading{
       font-size: 23px;
-      font-weight: 300;
+      font-weight: 500;
     }
     table{
       width: 100%;
       position: relative;
       border-collapse: collapse;
       border: 1px solid #eee;
+      background: #fff;
       th{
         padding: 10px;
         font-size: 14px;
@@ -393,6 +425,46 @@ export default {
         }
       }
     }
+    &-item-name-wrap{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    &-item-name-sizes{
+      order: 3;
+      width: 100%;
+      .item-size-before-tag{
+        font-size: 12px;
+        font-weight: 400;
+        margin-right: 20px;
+        color: #919191;
+      }
+      .item-size-tag-wrap{
+        display: inline-block;
+      }
+      .item-size-tag{
+        padding: 2px 5px;
+        margin-right: 10px;
+        font-size: 12px;
+        font-weight: inherit;
+        border-radius: 4px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, .2);
+        transition: .3s;
+        cursor: pointer;
+        background: #F7D840;
+        &.active{
+          color: #fff;
+          background: $pinkMain;
+        }
+        &:hover{
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, .4);
+        }
+        &:active{
+          background: #f1d43f;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, .6);
+        }
+      }
+    }
   }
   .compare-block{
     padding: 20px;
@@ -402,15 +474,31 @@ export default {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 0px 4px rgba(0,0,0,.1);
+    background: #fff;
     &__heading{
-      margin: 0;
-      font-size: 19px;
       cursor: pointer;
       user-select: none;
+      h2{
+        margin: 0;
+        margin-right: 15px;
+        float: left;
+        font-size: 19px;
+        @media (max-width: map-get($grid-breakpoints, md)) {
+          padding-top: 2px;
+          font-weight: 400;
+        }
+      }
       &--expanded{
         padding-bottom: 15px;
         margin-bottom: 15px;
         border-bottom: 1px solid #eee;
+      }
+      .compare-cart{
+        padding: 2px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        background: #F7D840;
       }
     }
     &__preview{
@@ -554,7 +642,7 @@ export default {
     }
     &__close-icon{
       position: absolute;
-      top: 20px;
+      top: 18px;
       right: 20px;
       padding: 0 5px;
       font-size: 20px;
@@ -565,6 +653,56 @@ export default {
       &--expanded{
         transform: rotate(180deg);
       }
+    }
+  }
+  .popup-info{
+    position: fixed;
+    bottom: -100%;
+    right: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 4;
+    transition: .5s;
+    color: #fff;
+    background: #273036;
+    &.show{
+      bottom: 10px;
+    }
+    &__heading{
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    &__text{
+      margin: 0;
+      font-size: 14px;
+      font-weight: 100;
+    }
+  }
+  .popup-top{
+    visibility: hidden;
+    position: fixed;
+    bottom: -100%;
+    right: 10px;
+    z-index: 4;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: .3s;
+    color: #fff;
+    background: $pinkMain;
+    &.show{
+      visibility: visible;
+      bottom: 10px;
+    }
+    &__icon{
+      padding: 6px 10px;
+      display: inline-block;
+      border-right: 1px solid #fff;
+    }
+    &__text{
+      display: inline-block;
+      padding: 0 10px;
+      font-size: 14px;
     }
   }
 }

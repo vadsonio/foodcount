@@ -77,7 +77,7 @@
                   <router-link class="footer__category-link" :to="{ path: '/articles' }" exact>Статьи</router-link>
                 </li>
                 <li class="footer__category-item">
-                  <a href="" class="footer__category-link">Список продуктов</a>
+                  <router-link class="footer__category-link" :to="{ path: '/foodList' }" exact>Список продуктов</router-link>
                 </li>
                 <li class="footer__category-item">
                   <a href="" class="footer__category-link">Калькулятор</a>
