@@ -4,6 +4,9 @@
       <li v-for="(comparingItem, index) in comparingList" :key="index" class="compare-details-mobile__item-name">
         <p>{{comparingItem.name}}</p>
         <span>{{comparingItem.weight}} гр.</span>
+        <div>
+          Детальнее
+        </div>
       </li>
     </ul>
 
@@ -17,27 +20,35 @@
           </div>
           <span class="compare-details-mobile__finish-pos">{{comparingItem.proteins}}</span>
         </div>
-        <span class="compare-details-mobile__category-name protein">
-          Белок
-        </span>
+        <p class="compare-details-mobile__category-name protein">
+          Белки, гр.
+        </p>
       </div>
         
       <div>
-        <div v-for="comparingItem in comparingList" :key="comparingItem.name">
-          {{comparingItem.fats}}
+        <div v-for="comparingItem in comparingList" :key="comparingItem.name" class="compare-details-mobile__progress">
+          <span class="compare-details-mobile__start-pos">0</span>
+          <div class="compare-details-mobile__progressive-bar">
+            <span class="compare-details-mobile__progressive-bar-fill fats" :style="{'width': compareItem(comparingItem.fats, 'fats')+'%'}"></span>
+          </div>
+          <span class="compare-details-mobile__finish-pos">{{comparingItem.fats}}</span>
         </div>
-        <span>
-          Жиры
-        </span>
+        <p class="compare-details-mobile__category-name fats">
+          Жиры, гр.
+        </p>
       </div>
 
       <div>
-        <div v-for="comparingItem in comparingList" :key="comparingItem.name">
-          {{comparingItem.carbohydrates}}
+        <div v-for="comparingItem in comparingList" :key="comparingItem.name" class="compare-details-mobile__progress">
+          <span class="compare-details-mobile__start-pos">0</span>
+          <div class="compare-details-mobile__progressive-bar">
+            <span class="compare-details-mobile__progressive-bar-fill carbohydrates" :style="{'width': compareItem(comparingItem.carbohydrates, 'carbohydrates')+'%'}"></span>
+          </div>
+          <span class="compare-details-mobile__finish-pos">{{comparingItem.carbohydrates}}</span>
         </div>
-        <span>
-          Углеводы
-        </span>
+        <p class="compare-details-mobile__category-name carbohydrates">
+          Углеводы, гр.
+        </p>
       </div>
     </VueSlickCarousel>
 
@@ -59,7 +70,7 @@ export default {
     return {
       comparingList: this.compareArray,
       settings: {
-        arrows: true,
+        arrows: false,
         dots: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -98,6 +109,9 @@ export default {
       justify-content: space-between;
       p{
         margin: 0;
+        @media (max-width: map-get($grid-breakpoints, md)) {
+          font-size: 14px;
+        }
       }
       span{
         padding: 2px 5px;
@@ -143,16 +157,53 @@ export default {
         &.protein{
           background: #F7D840;
         }
+        &.fats{
+          background: #FB439B;
+        }
+        &.carbohydrates{
+          background: #5A0DA9;
+        }
       }
     }
     &__category-name{
-      margin: 10px 0 10px;
+      margin: 35px 0 10px;
       padding: 2px 5px;
-      display: inline-block;
       border-radius: 5px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
       &.protein{
-        color: #fff;
-        background: #F7D840;
+        color: #333;
+      }
+    }
+    .slick-slider{
+      padding-bottom: 15px;
+    }
+    .slick-slide{
+      padding: 0 5px;
+    }
+    .slick-dots{
+      bottom: -5px;
+      li{
+        width: 15px;
+        height: 15px;
+        &.slick-active{
+          button{
+            border: none;
+            background: #FB439B;
+          }
+        }
+        button{
+          width: 15px;
+          height: 15px;
+          border: 2px solid #FB439B;
+          border-radius: 50%;
+          &:after,
+          &:before{
+            content: '';
+            display: none;
+          }
+        }
       }
     }
   }

@@ -212,6 +212,12 @@ export default {
           color: #707070;
         }
       }
+      &.chart-legend{
+        vertical-align: top;
+      }
+      &.chart-daily-norm{
+        vertical-align: top;
+      }
       &.delete{
         text-align: center;
         cursor: pointer;

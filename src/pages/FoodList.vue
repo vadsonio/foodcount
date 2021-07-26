@@ -192,8 +192,14 @@ export default {
     scrollToTop() {
       window.scrollTo(0,0);
     },
+    compareToAddedItem(sublistElement){
+      let compared = this.compareList.filter(item => item.id === sublistElement.id)
+      return compared.length > 0
+    },
     filteredFoodSublist(list){
-      return list.filter(item => item.name.toLowerCase().includes(this.searchQuery.toLowerCase()))
+      return list.filter(item => { 
+        return item.name.toLowerCase().includes(this.searchQuery.toLowerCase()) && !this.compareToAddedItem(item)
+      })
     },
     calculateItemKcal(weight, kcal){
       let defaultWeight = 100;
@@ -244,6 +250,8 @@ export default {
       this.compareList.push(newCompareItem);
 
       this.popupInit(name);
+
+      // console.log(this.compareList);
     },
     popupInit(text){
       this.popup = {
@@ -294,6 +302,7 @@ export default {
     box-shadow: 0px 0px 4px rgba(0,0,0,.1);
     background: #fff;
     @media (max-width: map-get($grid-breakpoints, md)) {
+      margin-bottom: 30px;
       padding: 20px;
       height: auto;
       flex-direction: column;
@@ -475,6 +484,9 @@ export default {
     overflow: hidden;
     box-shadow: 0px 0px 4px rgba(0,0,0,.1);
     background: #fff;
+    @media (max-width: map-get($grid-breakpoints, md)) {
+      padding: 20px 10px;
+    }
     &__heading{
       cursor: pointer;
       user-select: none;
@@ -513,133 +525,6 @@ export default {
         }
       }
     }
-    &__list{
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    &__item{
-      border: 1px solid $pinkMain;
-      padding: 10px;
-      border-radius: 5px;
-      margin-right: 15px;
-      margin-bottom: 20px;
-      width: calc(25% - 15px);
-      &--empty-dashed{
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 2px dashed $pinkMain;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 250px;
-        text-align: center;
-        color: $pinkMain;
-      }
-      h3{
-        font-size: 16px;
-        font-weight: 700;
-        margin-bottom: 15px;
-        color: $pinkMain;
-        text-decoration: underline;
-        text-align: center;
-        line-height: 20px;
-        height: 40px;
-        overflow: hidden;
-      }
-      &-wrap{
-        display: flex;
-      }
-      &-chart{
-        position: relative;
-        width: 100%;
-        .chart-sm{
-          margin: 0 auto;
-          width: 150px;
-          height: 150px;
-          position: relative;
-          &__chart{
-            height: 100%;
-            #doughnut-chart{
-              position: relative;
-              z-index: 3;
-            }
-          }
-          &__centered{
-            &-kcal{
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-weight: 900;
-              font-size: 25px;
-              text-align: center;
-              z-index: 2;
-            }
-            &-title{
-              font-size: 12px;
-              font-weight: 600;
-              color: #999;
-            }
-          }
-          &__chart-legend{
-            margin-top: 15px;
-            font-size: 14px;
-            text-align: center;
-            color: #777;
-            ul{
-              padding: 0;
-              margin: 10px 0 0;
-              list-style: none;
-              li{
-                padding: 3px 15px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                color: #fff;
-                border-radius: 6px;
-                margin-bottom: 5px;
-                font-size: 13px;
-                font-weight: 600;
-                &.proteins{
-                  background: #F7D840;
-                }
-                &.fats{
-                  background: #FB439B;
-                }
-                &.carbohydrates{
-                  background: #5A0DA9;
-                }
-                &.weight{
-                  display: block;
-                  font-size: 20px;
-                  font-weight: 800;
-                  color: #333;
-                }
-                p{
-                  margin: 0;
-                }
-              }
-            }
-            
-          }
-        }
-        .delete{
-          border: 1px dashed #ccc;
-          text-align: center;
-          font-size: 13px;
-          padding: 3px;
-          border-radius: 4px;
-          cursor: pointer;
-          &:hover{
-            background: #f1f1f1;
-          }
-        }
-      }
-    }
     &__close-icon{
       position: absolute;
       top: 18px;
@@ -661,7 +546,7 @@ export default {
     right: 10px;
     padding: 10px 20px;
     border-radius: 5px;
-    z-index: 4;
+    z-index: 5;
     transition: .5s;
     color: #fff;
     background: #273036;
