@@ -374,6 +374,7 @@ export default {
       border-collapse: collapse;
       border: 1px solid #eee;
       background: #fff;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
       th{
         padding: 10px;
         font-size: 14px;

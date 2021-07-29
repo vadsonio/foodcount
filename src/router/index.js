@@ -24,7 +24,11 @@ export default new Router({
     },
     {
       path: '/foodList',
-      component: () => import(/* webpackChunkName: "Article Page" */ "../pages/FoodList.vue")
+      component: () => import(/* webpackChunkName: "Foodlist Page" */ "../pages/FoodList.vue")
+    },
+    {
+      path: '/calculations',
+      component: () => import(/* webpackChunkName: "Calculations Page" */ "../pages/Calculations.vue")
     }
   ]
 })

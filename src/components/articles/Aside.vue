@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .aside{
   position: relative;
   padding: 20px;

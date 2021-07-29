@@ -10,7 +10,7 @@
           <router-link class="header__nav-link" :to="{ path: '/' }" exact-path>Главная</router-link>
           <router-link class="header__nav-link" :to="{ path: '/articles' }" exact>Статьи</router-link>
           <router-link class="header__nav-link" :to="{ path: '/foodList' }" exact>Список продуктов<b-icon icon="list-stars"></b-icon></router-link>
-          <a href="#" class="header__nav-link">Считать каллории<b-icon icon="calculator-fill"></b-icon></a>
+          <router-link class="header__nav-link" :to="{ path: '/calculations' }" exact>Калькуляторы<b-icon icon="calculator-fill"></b-icon></router-link>
           <a href="#" class="header__nav-link login-btn">Войти</a>
         </nav>
         <button class="header__mobile-menu-btn" @click="showMobileMenu">
